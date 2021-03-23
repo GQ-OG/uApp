@@ -1,0 +1,36 @@
+const fs = require("fs")
+const path = require("path")
+
+const files = {
+    'POST /test-api/hhhhhh': "hhhhhh.json"
+}
+
+const mocks = (props) => {
+    let returnObj = []
+    Object.keys(files).forEach(item => {
+        let file = path.join(__dirname, `./${files[item]}`)
+        fs.readFile(file, 'utf-8', (err, data) => {
+            if(!!err) {
+                returnObj[item] = {
+                    code: 404
+                }
+            }
+            else {
+                returnObj.push({
+                    [item]: data
+                })
+                console.log(data, "item==============>")
+            }
+        })
+    })
+    console.log(returnObj, "returnObj")
+    return returnObj
+    // {
+    //     'POST /test-api/hhhhhh': {
+    //         aaa: "aaa"
+    //     },
+    //     'POST /test-api/aaaaaa': "hhhhhh.json"
+    // }
+}
+
+module.exports = mocks()

@@ -14,7 +14,6 @@ import request from 'umi-request'
 const Test = (props) => {
     useEffect(() => {
         request.post("/test-api/hhhhhh")
-        request.post("/test-api/aaaaaa")
     })
     const [store] = useApp()
     const Com1 = useComponent(true)
