@@ -9,10 +9,14 @@ import {
 import {
     Button
 } from 'antd-mobile'
+import request from 'umi-request'
 
 const Test = (props) => {
     const [store] = useApp()
     const Com1 = useComponent(true)
+    useEffect(() => {
+        request.post("/api-user/admin/mip/v1/schedule")
+    }, [])
     return (
         <>
         </>

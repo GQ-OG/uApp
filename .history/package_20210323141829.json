@@ -161,5 +161,12 @@
   "devDependencies": {
     "babel-plugin-import": "^1.13.3"
   },
-  "proxy": ""
+  "proxy": {
+    "/test-api/hhhhhh": {
+      "target": "http:www.baidu.com/",
+      "pathRewrite": {
+        "^/api": "/"
+      }
+    }
+  }
 }
